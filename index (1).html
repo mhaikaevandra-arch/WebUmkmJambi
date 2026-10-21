@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WebUMKM Jambi – Jasa Pembuatan Website untuk UMKM</title>
+<meta name="description" content="Jasa pembuatan website sederhana untuk UMKM: cepat, terjangkau, dan siap dipakai berjualan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f7fb; --surface:#ffffff; --ink:#0f1b3d; --muted:#51608a; --line:#d9e0f0;
+  --brand:#2748d8; --on-brand:#ffffff; --accent:#ffd23f; --on-accent:#241c00; --soft:#e8edfc;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1226; --surface:#121c3a; --ink:#e9edfb; --muted:#9fabcf; --line:#223260;
+    --brand:#5b7bff; --on-brand:#0b1226; --soft:#16234a; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1226; --surface:#121c3a; --ink:#e9edfb; --muted:#9fabcf; --line:#223260;
+  --brand:#5b7bff; --on-brand:#0b1226; --soft:#16234a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.5rem);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "Plus Jakarta Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{margin:0;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+.logo{font-weight:800;font-size:1.2rem;text-decoration:none}
+nav{display:flex;gap:1.3rem;font-weight:500;align-items:center}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media(max-width:640px){nav a:not(.keep){display:none}}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);font-weight:700;padding:.8rem 1.4rem;border-radius:12px;text-decoration:none;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
+.btn:hover{filter:brightness(1.06)}
+.btn.blue{background:var(--brand);color:var(--on-brand)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center;padding:4rem 0 3.5rem}
+.hero h1{font-size:clamp(2.3rem,6.2vw,4.1rem);font-weight:800}
+.hero p{max-width:34rem;color:var(--muted);margin:1.2rem 0 1.8rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.browser{background:var(--surface);border:2px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:8px 8px 0 var(--brand)}
+.browser .top{display:flex;align-items:center;gap:.5rem;padding:.6rem .8rem;border-bottom:2px solid var(--ink);background:var(--soft)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--ink);opacity:.35}
+.url{flex:1;background:var(--surface);border-radius:8px;padding:.15rem .7rem;font-size:.85rem;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.page{padding:1.1rem;display:grid;gap:.7rem}
+.b{border-radius:8px;background:var(--soft)}
+.b1{height:2.2rem;background:var(--brand)}
+.b2{height:4.4rem}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.row3 .b{height:3.4rem}
+.b4{height:1.6rem;width:45%;background:var(--accent)}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:2.5rem}}
+section{padding:3.5rem 0}
+section h2{font-size:clamp(1.7rem,4vw,2.5rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:38rem;margin:0 0 2rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem;display:flex;flex-direction:column;gap:.6rem}
+.card h3{font-size:1.2rem}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+.pkg.pop{border:2px solid var(--brand)}
+.pkg .tag{align-self:flex-start;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:.8rem;padding:.1rem .6rem;border-radius:999px}
+.pkg .price{font-size:1.9rem;font-weight:800}
+.pkg ul{margin:.2rem 0 .8rem;padding-left:1.1rem;color:var(--muted);flex:1}
+.pkg li{margin:.2rem 0}
+.pkg .btn{text-align:center}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.3rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800;margin-bottom:.7rem}
+.steps b{display:block;font-size:1.1rem;margin-bottom:.2rem}
+.steps span{color:var(--muted);font-size:.98rem}
+.work .thumb{height:7.5rem;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-size:2.6rem}
+.work a.btn{text-align:center;padding:.6rem 1rem;font-size:.95rem}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;margin-bottom:.7rem}
+summary{font-weight:700;cursor:pointer}
+details p{margin:.6rem 0 0;color:var(--muted)}
+.contact{background:var(--brand);color:var(--on-brand);border-radius:20px;padding:2.5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem}
+.contact h2{color:inherit}
+.contact p{opacity:.92;margin:.6rem 0 0}
+.contact dl{margin:0;display:grid;gap:.8rem}
+.contact dt{font-weight:700}
+.contact dd{margin:0;opacity:.92}
+@media(max-width:780px){.contact{grid-template-columns:1fr;padding:1.6rem}}
+footer.f{padding:2rem 0 5rem;color:var(--muted);font-size:.92rem}
+.wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:25;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#atas" id="logo"></a>
+  <nav aria-label="Menu utama"><a href="#paket">Paket</a><a href="#proses">Proses</a><a href="#contoh">Contoh</a><a href="#faq">FAQ</a><a class="keep btn" id="navWa" href="#" target="_blank" rel="noopener">Konsultasi</a></nav>
+</div></header>
+
+<main id="atas">
+  <div class="wrap hero">
+    <div>
+      <h1 id="judul"></h1>
+      <p id="deskripsi"></p>
+      <div class="cta"><a class="btn" id="ctaWa" href="#" target="_blank" rel="noopener">Konsultasi gratis</a><a class="btn ghost" href="#paket">Lihat paket</a></div>
+    </div>
+    <div class="browser" aria-hidden="true">
+      <div class="top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url" id="urlContoh"></span></div>
+      <div class="page"><div class="b b1"></div><div class="b b2"></div><div class="row3"><div class="b"></div><div class="b"></div><div class="b"></div></div><div class="b b4"></div></div>
+    </div>
+  </div>
+
+  <section id="layanan"><div class="wrap">
+    <h2>Yang kamu dapat</h2>
+    <p class="lead">Website yang jelas, cepat dibuka, dan memudahkan pelanggan menghubungi kamu.</p>
+    <div class="cards" id="layananList"></div>
+  </div></section>
+
+  <section id="paket"><div class="wrap">
+    <h2>Pilih paket</h2>
+    <p class="lead">Harga di bawah adalah contoh dan bisa disesuaikan dengan kebutuhan usahamu.</p>
+    <div class="cards" id="paketList"></div>
+  </div></section>
+
+  <section id="proses"><div class="wrap">
+    <h2>Cara kerjanya</h2>
+    <p class="lead">Empat langkah dari ngobrol sampai websitemu online.</p>
+    <ol class="steps" id="prosesList"></ol>
+  </div></section>
+
+  <section id="contoh"><div class="wrap">
+    <h2>Contoh proyek</h2>
+    <p class="lead">Contoh website yang dibuat sebagai proyek simulasi untuk UMKM.</p>
+    <div class="cards" id="contohList"></div>
+  </div></section>
+
+  <section id="faq"><div class="wrap">
+    <h2>Pertanyaan yang sering muncul</h2>
+    <div id="faqList" style="max-width:44rem"></div>
+  </div></section>
+
+  <section id="kontak"><div class="wrap"><div class="contact">
+    <div>
+      <h2>Siap punya website sendiri?</h2>
+      <p>Ceritakan usahamu, nanti kami kasih saran dan estimasi harga tanpa biaya.</p>
+      <p style="margin-top:1.4rem"><a class="btn" id="ctaWa2" href="#" target="_blank" rel="noopener">Chat WhatsApp</a></p>
+    </div>
+    <dl id="kontakList"></dl>
+  </div></div></section>
+</main>
+
+<footer class="f"><div class="wrap" id="footerText"></div></footer>
+<a class="btn wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp">WhatsApp</a>
+
+<script>
+/* ====== EDIT BAGIAN INI SAJA ====== */
+const CONFIG = {
+  nama: "WebUMKM Jambi",
+  judul: "Website sederhana untuk usahamu, siap dalam 7 hari.",
+  deskripsi: "Kami bantu UMKM di Jambi punya website yang rapi, enak dibuka di HP, dan memudahkan pelanggan memesan lewat WhatsApp.",
+  contohUrl: "usahamu.com",
+  layanan: [
+    ["Tampilan rapi di HP", "Desain menyesuaikan layar HP, tablet, dan laptop."],
+    ["Pesan lewat WhatsApp", "Tombol pesan langsung membuka chat dengan pesan yang sudah terisi."],
+    ["Katalog produk", "Produk, harga, dan foto tertata dalam satu halaman."],
+    ["Mudah diubah", "Harga dan produk bisa kamu ganti sendiri tanpa belajar coding."]
+  ],
+  paket: [
+    {nama:"Basic", harga:"Rp300.000", tag:"", fitur:["1 halaman (landing page)", "Profil usaha dan kontak", "Tombol WhatsApp", "Revisi 1 kali"]},
+    {nama:"Standar", harga:"Rp600.000", tag:"Paling dipilih", fitur:["Hingga 3 bagian halaman", "Katalog hingga 10 produk", "Pesan produk via WhatsApp", "Peta lokasi dan ulasan", "Revisi 2 kali"]},
+    {nama:"Plus", harga:"Rp1.000.000", tag:"", fitur:["Semua fitur Standar", "Katalog hingga 30 produk", "Bantuan daftar Google Business", "Bantuan hosting dan domain", "Revisi 3 kali"]}
+  ],
+  proses: [
+    ["Konsultasi", "Kamu cerita tentang usaha, produk, dan target pelanggan."],
+    ["Desain", "Kami kirim gambaran tampilan untuk kamu setujui."],
+    ["Pembuatan", "Website dibangun dan bisa kamu coba di HP sendiri."],
+    ["Revisi dan serah terima", "Perbaikan kecil dibereskan, lalu website online."]
+  ],
+  contoh: [
+    {ikon:"🧁", nama:"Dapur Manis Jambi", info:"Website promosi toko kue kering dan brownies rumahan dengan katalog dan pesan WhatsApp.", link:"https://haikaevandra17.github.io/Dapur-manis-jambi/"},
+    {ikon:"☕", nama:"Kopi Batanghari", info:"Website promosi kedai kopi lokal dengan katalog dan pesan WhatsApp.", link:""}
+  ],
+  faq: [
+    ["Berapa lama pengerjaannya?", "Paket Basic sekitar 3 hari dan paket lain sekitar 7 hari, tergantung kelengkapan bahan dari kamu."],
+    ["Aku harus siapkan apa?", "Nama usaha, daftar produk dan harga, foto produk, serta nomor WhatsApp."],
+    ["Apakah ada biaya bulanan?", "Hosting statis bisa gratis. Kalau kamu ingin domain sendiri, ada biaya domain per tahun yang dibayar langsung ke penyedia domain."],
+    ["Kalau mau ubah harga atau produk?", "Bisa diubah sendiri lewat satu bagian data di berkas website, dan kami beri panduannya."]
+  ],
+  whatsapp: "6281234567890",   // format: 62 + nomor tanpa 0 di depan
+  alamat: "Kota Jambi (bisa online ke seluruh Indonesia)",
+  jam: "Senin–Sabtu, 09.00–20.00 WIB",
+  instagram: "@webumkm.jambi"
+};
+/* ====== SELESAI ====== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const wa = t => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(t)}`;
+
+document.title = `${CONFIG.nama} – Jasa Pembuatan Website UMKM`;
+$("logo").textContent = CONFIG.nama;
+$("judul").textContent = CONFIG.judul;
+$("deskripsi").textContent = CONFIG.deskripsi;
+$("urlContoh").textContent = CONFIG.contohUrl;
+const sapa = `Halo ${CONFIG.nama}, saya mau tanya soal pembuatan website untuk usaha saya.`;
+["navWa","ctaWa","ctaWa2","waFloat"].forEach(id => $(id).href = wa(sapa));
+
+$("layananList").innerHTML = CONFIG.layanan.map(l => `<div class="card"><h3>${esc(l[0])}</h3><p>${esc(l[1])}</p></div>`).join("");
+$("paketList").innerHTML = CONFIG.paket.map(p => `
+  <article class="card pkg${p.tag ? " pop" : ""}">
+    ${p.tag ? `<span class="tag">${esc(p.tag)}</span>` : ""}
+    <h3>${esc(p.nama)}</h3><div class="price">${esc(p.harga)}</div>
+    <ul>${p.fitur.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+    <a class="btn ${p.tag ? "blue" : ""}" target="_blank" rel="noopener" href="${wa(`Halo ${CONFIG.nama}, saya tertarik dengan paket ${p.nama}.`)}">Pilih paket ${esc(p.nama)}</a>
+  </article>`).join("");
+$("prosesList").innerHTML = CONFIG.proses.map(s => `<li><b>${esc(s[0])}</b><span>${esc(s[1])}</span></li>`).join("");
+$("contohList").innerHTML = CONFIG.contoh.map(c => `
+  <article class="card work"><div class="thumb" aria-hidden="true">${esc(c.ikon)}</div><h3>${esc(c.nama)}</h3><p>${esc(c.info)}</p>
+  ${c.link && c.link !== "#" ? `<a class="btn ghost" target="_blank" rel="noopener" href="${esc(c.link)}">Lihat website</a>` : ""}</article>`).join("");
+$("faqList").innerHTML = CONFIG.faq.map(f => `<details><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join("");
+$("kontakList").innerHTML = `<div><dt>Lokasi</dt><dd>${esc(CONFIG.alamat)}</dd></div><div><dt>Jam layanan</dt><dd>${esc(CONFIG.jam)}</dd></div><div><dt>Instagram</dt><dd>${esc(CONFIG.instagram)}</dd></div>`;
+$("footerText").textContent = `© ${new Date().getFullYear()} ${CONFIG.nama}. Jasa pembuatan website untuk UMKM.`;
+</script>
+</body>
+</html>
